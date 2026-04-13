@@ -5,20 +5,13 @@ import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 
 object Constants {
-    val COMPATIBILITY_EXAMPLE = Compatibility(
-        name = "XYZ app",
-        packageName = "com.example.app",
-        apkFileType = ApkFileType.APK,
-        appIconColor = 0xFF0045, // Icon color in Morphe Manager
+    val COMPATIBILITY_CALL_BLACKLIST = Compatibility(
+        name = "Call Blacklist",
+        packageName = "com.vladlee.easyblacklist",
+        apkFileType = ApkFileType.APK, 
+        appIconColor = 0xe53935,
         targets = listOf(
-            // "version = null" means the patch works with the latest app target
-            // and is expected to work with all future app targets
-            AppTarget(
-                version = "2.0.0"
-            ),
-            AppTarget(
-                version = "1.0.2",
-            )
+            AppTarget(version = "4.8.20")
         )
     )
 }
