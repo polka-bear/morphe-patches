@@ -8,8 +8,6 @@ import app.template.patches.excel.Fingerprints.IntegrityCheckFingerprint
 import app.template.patches.shared.Constants.COMPATIBILITY_EXCEL
 import app.morphe.patches.shared.SmaliTemplates.returnBoolean
 import app.morphe.patches.shared.SmaliTemplates.returnStaticField
-import app.template.patches.shared.SmaliTemplates.returnBoolean
-import app.template.patches.shared.SmaliTemplates.returnStaticField
 
 @Suppress("unused")
 val excelUnlockPremiumPatch = bytecodePatch(
