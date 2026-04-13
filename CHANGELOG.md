@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/polka-bear/morphe-patches/compare/v1.2.0...v1.2.1) (2026-04-13)
+
+
+### Bug Fixes
+
+* Test fix for excel, Tradingview and stickerly ([fc79ad9](https://github.com/polka-bear/morphe-patches/commit/fc79ad9322012e0341a931159d4a5db114448ee6))
+
 ## [1.2.1-dev.1](https://github.com/polka-bear/morphe-patches/compare/v1.2.0...v1.2.1-dev.1) (2026-04-13)
 
 
