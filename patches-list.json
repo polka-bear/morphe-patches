@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0-dev.1",
   "patches": [
     {
       "name": "Remove Ads",
@@ -14,6 +14,30 @@
       "options": []
     },
     {
+      "name": "Remove Ads",
+      "description": "Disables reward ad display by forcing the ad gatekeeper to always decline.",
+      "use": true,
+      "dependencies": [],
+      "compatiblePackages": {
+        "com.snowcorp.stickerly.android": [
+          "3.23.1"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Remove Ads",
+      "description": "Disables banner ad loading on symbol pages.",
+      "use": true,
+      "dependencies": [],
+      "compatiblePackages": {
+        "com.tradingview.tradingviewapp": [
+          "1.20.71.1"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Unlock Premium",
       "description": "Unlocks all premium features.",
       "use": true,
@@ -21,6 +45,30 @@
       "compatiblePackages": {
         "com.vladlee.easyblacklist": [
           "4.8.20"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Unlock Premium",
+      "description": "Unlocks all premium features by forcing subscription state to active.",
+      "use": true,
+      "dependencies": [],
+      "compatiblePackages": {
+        "com.snowcorp.stickerly.android": [
+          "3.23.1"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Unlock Pro Features",
+      "description": "Enables all Pro plan features by bypassing client-side feature gates.",
+      "use": true,
+      "dependencies": [],
+      "compatiblePackages": {
+        "com.tradingview.tradingviewapp": [
+          "1.20.71.1"
         ]
       },
       "options": []
