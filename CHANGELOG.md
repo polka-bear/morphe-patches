@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/polka-bear/morphe-patches/compare/v1.1.0...v1.2.0) (2026-04-13)
+
+
+### Features
+
+* **excel:** Unlock Premium ([4a1f5b0](https://github.com/polka-bear/morphe-patches/commit/4a1f5b0a4355fcaf5104b87d984a88d43bf26dea))
+
 # [1.2.0-dev.1](https://github.com/polka-bear/morphe-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-04-13)
 
 
