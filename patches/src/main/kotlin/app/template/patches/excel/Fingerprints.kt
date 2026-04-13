@@ -11,6 +11,13 @@ object Fingerprints {
         name = "IsPremiumFeatureLicensingDisabled"
     )
 
+    // com.microsoft.office.android.transparencyverification.a -> n(Context) : boolean
+    // Core integrity check that triggers the "trusted source" error.
+    val IntegrityCheckFingerprint = Fingerprint(
+        definingClass = "Lcom/microsoft/office/android/transparencyverification/a;",
+        name = "n"
+    )
+
     // com.microsoft.office.officehub.util.OHubUtil — public API surface for licensing state queries.
     // Non-obfuscated (@KeepClassAndMembers) — stable across versions.
     val OHubUtilFingerprint = Fingerprint(
