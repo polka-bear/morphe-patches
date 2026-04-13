@@ -13,7 +13,8 @@ object Constants {
         targets = listOf(
             AppTarget(version = "4.8.20")
         )
-    ),
+    )
+
     val COMPATIBILITY_TRADINGVIEW = Compatibility(
         name = "TradingView",
         packageName = "com.tradingview.tradingviewapp",
@@ -24,7 +25,8 @@ object Constants {
             // but test after each app update as method signatures can change
             AppTarget(version = "1.20.71.1")
         )
-    ),
+    )
+    
     val COMPATIBILITY_STICKERLY = Compatibility(
         name = "Stickerly",
         packageName = "com.snowcorp.stickerly.android",
