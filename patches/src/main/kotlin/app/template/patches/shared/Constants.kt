@@ -36,4 +36,14 @@ object Constants {
             AppTarget(version = "3.23.1")  // version-locked: uses obfuscated class names
         )
     )
+    
+    val COMPATIBILITY_EXCEL = Compatibility(
+    name = "Microsoft Excel",
+    packageName = "com.microsoft.office.excel",
+    apkFileType = ApkFileType.APK,
+    appIconColor = 0x217346,  // Excel green
+    targets = listOf(
+        AppTarget(version = null)  // Version-independent: all fingerprints use non-obfuscated class names
+    )
+)
 }
