@@ -14,7 +14,7 @@ val callBlacklistUnlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium",
     description = "Unlocks all premium features.",
     default = true
-) {
+) { 
     compatibleWith(COMPATIBILITY_CALL_BLACKLIST)
 
     execute {
