@@ -1,3 +1,11 @@
+## [1.2.2-dev.1](https://github.com/polka-bear/morphe-patches/compare/v1.2.1...v1.2.2-dev.1) (2026-04-13)
+
+
+### Bug Fixes
+
+* build error due to excel patch ([f3d3936](https://github.com/polka-bear/morphe-patches/commit/f3d3936dce5ddb7b28fcd3388943a83fc5d59a7c))
+* Remove unused imports ([6135b62](https://github.com/polka-bear/morphe-patches/commit/6135b6268b455bc2bd23119752787b7cf67d08da))
+
 ## [1.2.1](https://github.com/polka-bear/morphe-patches/compare/v1.2.0...v1.2.1) (2026-04-13)
 
 
