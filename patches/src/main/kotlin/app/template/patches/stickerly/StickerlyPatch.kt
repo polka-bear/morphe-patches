@@ -1,8 +1,6 @@
 package app.template.patches.stickerly
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.instructions
-import app.morphe.patcher.extensions.InstructionExtensions.removeInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.stickerly.Fingerprints.SubscriptionStateCheckFingerprint
 import app.template.patches.stickerly.Fingerprints.PaywallPopupFingerprint
@@ -21,29 +19,20 @@ val stickerlyUnlockPremiumPatch = bytecodePatch(
         // 1. Force SubscriptionStateManager.a() to return true
         // This is the central gatekeeper checked by 20+ fragments/view models.
         // When true, all premium features are unlocked and ads are suppressed.
+        // Inject at index 0 — original code is preserved but unreachable.
         val stateManagerClass = classDefBy(SubscriptionStateCheckFingerprint.definingClass!!)
         val stateMatch = SubscriptionStateCheckFingerprint.match(stateManagerClass)
-        stateMatch.method.apply {
-            implementation?.let { impl ->
-                removeInstructions(0, impl.instructions.count())
-                addInstructions(0, "const/4 v0, 0x1\nreturn v0")
-            }
-        }
+        stateMatch.method.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
 
         // 2. Force PaywallPopupManager.a() to return Boolean.FALSE (don't show paywall)
-        // This coroutine method bypasses n.a() by reading SubscriptionModel.a directly
-        // via n.b(). Returning FALSE prevents the paywall dialog from ever appearing.
+        // This is a coroutine method with try-catch — must NOT remove instructions
+        // or the exception handler table becomes invalid. Injecting at index 0 is safe.
         val paywallClass = classDefBy(PaywallPopupFingerprint.definingClass!!)
         val paywallMatch = PaywallPopupFingerprint.match(paywallClass)
-        paywallMatch.method.apply {
-            implementation?.let { impl ->
-                removeInstructions(0, impl.instructions.count())
-                addInstructions(
-                    0,
-                    "sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;\nreturn-object v0"
-                )
-            }
-        }
+        paywallMatch.method.addInstructions(
+            0,
+            "sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;\nreturn-object v0"
+        )
     }
 }
 
@@ -57,17 +46,9 @@ val stickerlyRemoveAdsPatch = bytecodePatch(
 
     execute {
         // Force RewardAdCheck.a(Referrer) to return false
-        // This method checks subscription state and Firebase Remote Config to decide
-        // whether to show reward ads. Returning false = never show reward ads.
-        // The premium patch already suppresses ads via subscription state, but this
-        // provides a direct safety net at the ad display layer.
+        // Inject at index 0 — original code is preserved but unreachable.
         val adCheckClass = classDefBy(RewardAdCheckFingerprint.definingClass!!)
         val adMatch = RewardAdCheckFingerprint.match(adCheckClass)
-        adMatch.method.apply {
-            implementation?.let { impl ->
-                removeInstructions(0, impl.instructions.count())
-                addInstructions(0, "const/4 v0, 0x0\nreturn v0")
-            }
-        }
+        adMatch.method.addInstructions(0, "const/4 v0, 0x0\nreturn v0")
     }
 }

@@ -28,12 +28,13 @@ object Fingerprints {
         name = "getBenefitsPlanLevel"
     )
 
-    // UserPlanInfo.getIsFree() : boolean
+    // UserPlanInfo.isFree() : boolean
     // Simple boolean getter used in GoPro/paywall decision flow.
     // When true, triggers native GoPro purchase or browser paywall.
+    // Note: JADX displays this as "getIsFree" but the actual bytecode name is "isFree".
     val UserPlanInfoIsFreeFingerprint = Fingerprint(
         definingClass = "Lcom/tradingview/tradingviewapp/gopro/impl/core/model/UserPlanInfo;",
-        name = "getIsFree"
+        name = "isFree"
     )
 
     // AdvertisementContainerView.onBind(AdvertisementEventsListener, AdsContainerSettings) : void
