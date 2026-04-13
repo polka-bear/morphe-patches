@@ -1,11 +1,11 @@
-group = "app.template"
+group = "app.morphe"
 
 patches {
     about {
-        name = "UserXYZ Patches"
+        name = "Polka Patches"
         description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
+        source = "git@github.com:polka-bear/morphe-patches.git"
+        author = "Polka Bear"
         contact = "na"
         website = "na"
         license = "GPLv3"
@@ -14,7 +14,7 @@ patches {
 
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-Xcontext-parameters")
+        freeCompilerArgs.add("-Xcontext-receivers")
     }
 }
 
