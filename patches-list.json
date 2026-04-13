@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "patches": [
     {
       "name": "Remove Ads",
@@ -46,6 +46,16 @@
         "com.vladlee.easyblacklist": [
           "4.8.20"
         ]
+      },
+      "options": []
+    },
+    {
+      "name": "Unlock Premium",
+      "description": "Unlocks all Microsoft 365 premium features and hides upsell prompts.",
+      "use": true,
+      "dependencies": [],
+      "compatiblePackages": {
+        "com.microsoft.office.excel": null
       },
       "options": []
     },
