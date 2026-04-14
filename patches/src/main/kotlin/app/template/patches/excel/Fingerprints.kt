@@ -18,20 +18,6 @@ object Fingerprints {
         name = "n"
     )
 
-    // com.microsoft.office.mso.async.UnderlyingTimer$a -> run() : void
-    // Native watchdog heartbeat timer. Forcing this to do nothing prevents the native crash.
-    val WatchdogTimerFingerprint = Fingerprint(
-        definingClass = "Lcom/microsoft/office/mso/async/UnderlyingTimer\$a;",
-        name = "run"
-    )
-
-    // com.microsoft.office.mso.docs.model.sharingfm.SharedDocumentUI -> getCanEditPermissions() : boolean
-    // Determines if the current document session has edit permissions.
-    val CanEditPermissionsFingerprint = Fingerprint(
-        definingClass = "Lcom/microsoft/office/mso/docs/model/sharingfm/SharedDocumentUI;",
-        name = "getCanEditPermissions"
-    )
-
     // com.microsoft.office.officehub.util.OHubUtil — public API surface for licensing state queries.
     // Non-obfuscated (@KeepClassAndMembers) — stable across versions.
     val OHubUtilFingerprint = Fingerprint(

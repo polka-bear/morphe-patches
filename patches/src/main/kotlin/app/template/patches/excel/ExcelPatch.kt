@@ -5,8 +5,6 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.excel.Fingerprints.PremiumLicensingDisabledFingerprint
 import app.template.patches.excel.Fingerprints.OHubUtilFingerprint
 import app.template.patches.excel.Fingerprints.IntegrityCheckFingerprint
-import app.template.patches.excel.Fingerprints.WatchdogTimerFingerprint
-import app.template.patches.excel.Fingerprints.CanEditPermissionsFingerprint
 import app.template.patches.shared.Constants.COMPATIBILITY_EXCEL
 import app.morphe.patches.shared.SmaliTemplates.returnBoolean
 import app.morphe.patches.shared.SmaliTemplates.returnStaticField
@@ -26,23 +24,6 @@ val excelUnlockPremiumPatch = bytecodePatch(
         val integrityClass = classDefBy(IntegrityCheckFingerprint.definingClass!!)
         IntegrityCheckFingerprint.match(integrityClass).method
             .addInstructions(0, returnBoolean(true))
-
-        // 0b. Disable Native Watchdog
-        // Force com.microsoft.office.mso.async.UnderlyingTimer$a.run() to do nothing.
-        // This prevents the native crash in nativeTimerExpiryHandlerInternal.
-        val watchdogClass = classDefBy(WatchdogTimerFingerprint.definingClass!!)
-        WatchdogTimerFingerprint.match(watchdogClass).method
-            .addInstructions(0, "return-void")
-
-        // 0c. Force Edit Permissions
-        // Force com.microsoft.office.mso.docs.model.sharingfm.SharedDocumentUI.getCanEditPermissions() to return true.
-        // This should remove the "Activate Microsoft 365 to create or edit" block.
-        val editPermsClass = classDefBy(CanEditPermissionsFingerprint.definingClass!!)
-        CanEditPermissionsFingerprint.match(editPermsClass).method
-            .addInstructions(0, returnBoolean(true))
-
-        // All patches inject at index 0 — original code is preserved but unreachable.
-        // This avoids corrupting exception handler tables (GetLicensingState has try-finally).
 
         // All patches inject at index 0 — original code is preserved but unreachable.
         // This avoids corrupting exception handler tables (GetLicensingState has try-finally).
