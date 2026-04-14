@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/polka-bear/morphe-patches/compare/v1.2.2...v1.3.0) (2026-04-14)
+
+
+### Bug Fixes
+
+* **excel:** escape dollar sign in descriptor to fix compilation error ([35ebffb](https://github.com/polka-bear/morphe-patches/commit/35ebffb18c6f9bbb4d6d560452da8b46dea75054))
+
+
+### Features
+
+* **excel:** unlock premium, bypass integrity check and native watchdog ([0038497](https://github.com/polka-bear/morphe-patches/commit/0038497220ec57d6ad15a339405eb04bf60bfd22))
+
 ## [1.2.2](https://github.com/polka-bear/morphe-patches/compare/v1.2.1...v1.2.2) (2026-04-13)
 
 
