@@ -1,3 +1,10 @@
+## [1.4.1-dev.1](https://github.com/polka-bear/morphe-patches/compare/v1.4.0...v1.4.1-dev.1) (2026-04-14)
+
+
+### Bug Fixes
+
+* fix bug for app crash ([fe80ef8](https://github.com/polka-bear/morphe-patches/commit/fe80ef8104ffaa6307cc1ee9468263bd6c2da917))
+
 # [1.4.0](https://github.com/polka-bear/morphe-patches/compare/v1.3.0...v1.4.0) (2026-04-14)
 
 
