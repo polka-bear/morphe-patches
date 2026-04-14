@@ -21,7 +21,7 @@ object Fingerprints {
     // com.microsoft.office.mso.async.UnderlyingTimer$a -> run() : void
     // Native watchdog heartbeat timer. Forcing this to do nothing prevents the native crash.
     val WatchdogTimerFingerprint = Fingerprint(
-        definingClass = "Lcom/microsoft/office/mso/async/UnderlyingTimer$a;",
+        definingClass = "Lcom/microsoft/office/mso/async/UnderlyingTimer\$a;",
         name = "run"
     )
 
