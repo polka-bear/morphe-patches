@@ -1,82 +1,65 @@
-# 👋🧩 Morphe Patches template
+# 🧩 Polka-Bear Morphe Patches
 
-Template repository for Morphe Patches.
+Custom Android patches for the Morphe framework.
 
 &nbsp;
-## ❓ About
 
-This is a template to create a new Morphe Patches repository.
+## ⚠️ Important
+These patches are created for educational and research purposes. The software is provided "as is" without any warranty. Use them at your own risk.
 
-Morphe Patches template is based off the prior work of [ReVanced](https://github.com/ReVanced/revanced-patches-template).
-All modifications made by Morphe, along with their dates, can be found in the Git history.
+&nbsp;
 
+## 🚀 How to use these patches
 
-## 🚀 Get started
+To apply these patches using Morphe Manager:
 
-To start using this template, follow these steps:
+1. Open **Morphe Manager**.
+2. Go to the **Repositories** section.
+3. Click **Add Repository** and enter the following GitHub URL:
+   `https://github.com/polka-bear/morphe-patches`
+4. (Optional) If you want to use the latest experimental updates, enable the **"Use pre-release patches"** option and select the `dev` branch.
+5. Select the app you wish to patch and apply the desired modifications.
 
-1. [Create a new repository using this template](https://github.com/new?template_name=morphe-patches-template&template_owner=MorpheApp)
-2. Set up the [build.gradle.kts](patches/build.gradle.kts) file (Specifically, the 
-   [group of the project](patches/build.gradle.kts#L1), and the [About](patches/build.gradle.kts#L5-L11))
-3. Set up the [README.md](README.md) file[^1] (e.g, title, description, license, summary of the patches
-that are included in the repository), the [issue templates](.github/ISSUE_TEMPLATE)[^2]  and the [contribution guidelines](CONTRIBUTING.md)[^3]
-4. Choose a name for your patches project. Keep in mind you must use a unique name that does not 
-   imply or suggest authorship by the Morphe open source project. If unsure, then simply name these
-   patches after yourself ("UserXYZ Morphe patches"). See the [NOTICE](NOTICE) for details. 
-5. (Optional): Add `patches-bundle.png` to the project if you want a custom icon to show in
-   Morphe Manager instead of your GitHub profile avatar.
+Alternatively, you can add the source directly via this link:
+[Click here to add these patches to Morphe](https://morphe.software/add-source?github=polka-bear/morphe-patches)
 
-🎉 You are now ready to start creating patches!
+&nbsp;
 
-## 🧑‍💻 Usage
+## 📦 Available Patches
 
-To develop and release Morphe Patches using this template, some things need to be considered:
+| App | Package ID | Patches |
+| :--- | :--- | :--- |
+| **Call Blacklist** | `com.callblacklist` | Unlock Premium, Remove Ads |
 
-- Development starts in feature branches. Once a feature branch is ready, it is squashed and merged into the `dev` branch
-- The `dev` branch is merged into the `main` branch once it is ready for release
-- Semantic versioning is used to version Morphe Patches.
-- [Semantic commit](https://kapeli.com/cheat_sheets/Semantic_Commits.docset/Contents/Resources/Documents/index) messages are used for commits
-- Commits on the `dev` branch and `main` branch are automatically released
-via the [release.yml](.github/workflows/release.yml) workflow, which is also responsible for generating the changelog
-and updating the version of Morphe Patches. It is triggered by pushing to the `dev` or `main` branch.
-The workflow uses the `publish` task to publish the release of Morphe Patches.
-- The `buildAndroid` task is used to build Morphe Patches so that it can be used on Android.
+**Compatibility Note:** Patches are primarily tested on `arm64-v8a` architecture.
 
+&nbsp;
 
-## 🤓 Tips
-- See the [patcher documentation](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/1_patcher_intro.md)
-  for more examples of creating patches and fingerprints.
-- Do not manually edit any generated files such as: `patches-list.json`, `patches-bundle.json`, `CHANGELOG.md`.
-  These files will be automatically updated in the release action.
-- Do not force push any semantic release commits or you will break the release. To 'redo' the last release then:
-  - Git drop the last dev/main semantic release commit you want to redo.
-  - Delete the release from the release area of this repo and delete the tag   
-  - Make any other changes you wish to do
-  - Force push dev/main branch
-  - A new replacement release will be created by `release.yml`
+## 🛠️ Building from source
 
+If you wish to contribute or build the patches yourself:
 
-## 📚 Everything else
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/polka-bear/morphe-patches.git
+   ```
+2. Build the project using the Gradle wrapper:
+   ```bash
+   ./gradlew clean build
+   ```
 
-Optionally you can include a button/link in this readme that users can click to add your 
-patches to Morphe (update the links below after creating your new patches repo):
+&nbsp;
 
-#### How to use these patches
+## 📙 Contributing
 
-Click here to add these patches to Morphe: https://morphe.software/add-source?github=xyz-user/xyz-patches
+Contributions are welcome! Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to submit new patches or report bugs.
 
-Or manually add this repository url as a patch source in Morphe: https://github.com/xyz-user/xyz-patches
-
-### 📙 Contributing
-
-Thank you for considering contributing to UserXYZ Morphe Patches template.  
-You can find the contribution guidelines [here](CONTRIBUTING.md).
-
-### 🛠️ Building
-
-To build UserXYZ Morphe Patches template,
-you can follow the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation).
+&nbsp;
 
 ## 📜 License
 
-UserXYZ Morphe Patches are licensed under the [GNU General Public License v3.0](LICENSE)
+These patches are licensed under the [GNU General Public License v3.0](LICENSE).
+
+&nbsp;
+
+**Credits**: Built with the [Morphe Framework](https://github.com/MorpheApp/morphe-patcher).
