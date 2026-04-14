@@ -15,35 +15,13 @@ object Constants {
         )
     )
 
-    val COMPATIBILITY_TRADINGVIEW = Compatibility(
-        name = "TradingView",
-        packageName = "com.tradingview.tradingviewapp",
-        apkFileType = ApkFileType.APK,
-        appIconColor = 0x2962FF,  // TradingView brand blue
-        targets = listOf(
-            // Uses non-obfuscated class names — may work across versions,
-            // but test after each app update as method signatures can change
-            AppTarget(version = "1.20.71.1")
-        )
-    )
-    
-    val COMPATIBILITY_STICKERLY = Compatibility(
-        name = "Stickerly",
-        packageName = "com.snowcorp.stickerly.android",
-        apkFileType = ApkFileType.APK,
-        appIconColor = 0xFF4081,  // TODO: verify exact brand color from app icon
-        targets = listOf(
-            AppTarget(version = "3.23.1")  // version-locked: uses obfuscated class names
-        )
-    )
-    
-    val COMPATIBILITY_EXCEL = Compatibility(
-    name = "Microsoft Excel",
-    packageName = "com.microsoft.office.excel",
+    val COMPATIBILITY_IPOJI = Compatibility(
+    name = "iPoji",
+    packageName = "com.ipoji.app",
     apkFileType = ApkFileType.APK,
-    appIconColor = 0x217346,  // Excel green
+    appIconColor = 0xFF6B35,  // Orange (adjust as needed)
     targets = listOf(
-        AppTarget(version = null)  // Version-independent: all fingerprints use non-obfuscated class names
+        AppTarget(version = null)  // Version-independent: RevenueCat's EntitlementInfo is non-obfuscated public API
     )
 )
 }
