@@ -1,3 +1,10 @@
+# [1.4.0-dev.1](https://github.com/polka-bear/morphe-patches/compare/v1.3.0...v1.4.0-dev.1) (2026-04-14)
+
+
+### Features
+
+* **ipoji:** Unlock pro and remove ads ([ddd44d5](https://github.com/polka-bear/morphe-patches/commit/ddd44d52fc6663a1a8f50908442c51de4d4bf455))
+
 # [1.3.0](https://github.com/polka-bear/morphe-patches/compare/v1.2.2...v1.3.0) (2026-04-14)
 
 
