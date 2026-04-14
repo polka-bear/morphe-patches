@@ -2,8 +2,35 @@ package app.template.patches.ipoji
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import app.template.patches.ipoji.Fingerprints.SignatureCheckFingerprint
+import app.template.patches.ipoji.Fingerprints.StartupLauncherFingerprint
 import app.template.patches.ipoji.Fingerprints.EntitlementIsActiveFingerprint
 import app.template.patches.shared.Constants.COMPATIBILITY_IPOJI
+
+@Suppress("unused")
+val ipojiBypassIntegrityPatch = bytecodePatch(
+    name = "Bypass Integrity Protection",
+    description = "Disables PairIP signature verification and startup VM checks that crash re-signed APKs.",
+    default = true
+) {
+    compatibleWith(COMPATIBILITY_IPOJI)
+
+    execute {
+        // 1. Bypass SignatureCheck.verifyIntegrity(Context) — make it return immediately.
+        // After Morphe re-signs the APK, the SHA-256 of the signing cert no longer matches
+        // the hardcoded hashes. Without this bypass, the app throws SignatureTamperedException.
+        val sigCheckClass = classDefBy(SignatureCheckFingerprint.definingClass!!)
+        SignatureCheckFingerprint.match(sigCheckClass).method
+            .addInstructions(0, "return-void")
+
+        // 2. Bypass StartupLauncher.launch() — skip the encrypted VM startup code.
+        // The VM (libpairipcore.so) runs encrypted bytecode from assets/ that may perform
+        // additional tamper detection. Skipping it prevents any secondary integrity failures.
+        val launcherClass = classDefBy(StartupLauncherFingerprint.definingClass!!)
+        StartupLauncherFingerprint.match(launcherClass).method
+            .addInstructions(0, "return-void")
+    }
+}
 
 @Suppress("unused")
 val ipojiUnlockPremiumPatch = bytecodePatch(
